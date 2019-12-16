@@ -61,10 +61,9 @@ class Song
   def self.create_from_filename(filename)
     filename_array = filename.split(" - ") #["Thundercat", "For Love I Come.mp3"]
     parsed_filename_array = filename_array.map {|song_name| song_name.gsub(/.mp3/, '')}
-    song = self.new
+    song = self.create
     song.name = parsed_filename_array[1]
     song.artist_name = parsed_filename_array[0]
-    song.save
   end
   
   def self.destroy_all
